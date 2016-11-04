@@ -5,7 +5,7 @@ Créer ficheir json
 {% endblock %}
 
 {% block content %}
-<form action="/creation" method="post">
+<form action="{{path_for('creation')}}" method="post" id="creation_form">
     <div class="row">
         <div class="medium-12 columns">
             <label>Moodle root path:</label>
@@ -34,7 +34,7 @@ Créer ficheir json
 
         </fieldset>
     </div>
-    <input type="submit" class="button expanded" value="Submit">
+    <input type="submit" class="button expanded" value="Submit" >
 </form>
 
 <script>
@@ -44,5 +44,18 @@ Créer ficheir json
     $('#uncheckAll').on('click', function() {
         $("input[type=checkbox]").prop('checked', false);
     });
+
+    /**
+     * On enlève tous les versions des composantes qui ne sont pas
+     * séléctionnées.
+     */
+    $('#creation_form').on('submit', function () {
+        $("input:checkbox:not(:checked)").each(function() {
+            var component = $(this).attr('id');
+            var test = $('#' + component+'_version');
+            test.attr('disabled', true);
+        });
+
+    })
 </script>
 {% endblock %}

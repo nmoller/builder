@@ -20,6 +20,11 @@ class Plugin {
         $this->dir = $dir;
         $this->url = $url;
         $this->version = $version;
+        $this->cleanName();
+    }
+
+    function cleanName(){
+        $this->name = str_replace('.', '_', $this->name);
     }
 
 }

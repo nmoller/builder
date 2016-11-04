@@ -1,5 +1,14 @@
-<input id="{{comp.name}}"
-       type="checkbox"
-       value="{{comp.dir}}|{{comp.url}}|{{comp.version}}"
-       name="{{comp.name}}">
-<label for="{{comp.name}}">{{comp.name}}</label>
+<div class="row">
+    <div class="medium-12 columns">
+        <div class="medium-3 columns">
+            <input id="{{comp.name}}"
+               type="checkbox"
+               value="{{comp.dir}}|{{comp.url}}"
+               name="{{comp.name}}">
+            <label for="{{comp.name}}">{{comp.name}}</label>
+        </div>
+        <div class="float-left medium-6 columns">
+            <input type="text" value="{{comp.version}}" name="{{comp.name}}|version" id="{{comp.name}}_version">
+        </div>
+    </div>
+</div>
