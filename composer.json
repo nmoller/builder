@@ -10,11 +10,14 @@
   ],
   "require": {
     "slim/slim": "~3.0",
-    "slim/twig-view": "^2.1"
+    "slim/twig-view": "^2.1",
+    "zendframework/zend-servicemanager": "2.*",
+    "zendframework/zend-config": "2.*",
+    "zendframework/zend-json": "2.*"
   },
   "autoload": {
     "psr-0": {
-      "uqam": "src/"
+      "": "src/"
     }
   }
 }

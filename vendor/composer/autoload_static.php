@@ -11,6 +11,13 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\Stdlib\\' => 12,
+            'Zend\\ServiceManager\\' => 20,
+            'Zend\\Json\\' => 10,
+            'Zend\\Config\\' => 12,
+        ),
         'S' => 
         array (
             'Slim\\Views\\' => 11,
@@ -31,6 +38,22 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
     );
 
     public static $prefixDirsPsr4 = array (
+        'Zend\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
+        ),
+        'Zend\\ServiceManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-servicemanager/src',
+        ),
+        'Zend\\Json\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-json/src',
+        ),
+        'Zend\\Config\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-config/src',
+        ),
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/twig-view/src',
@@ -54,13 +77,6 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
     );
 
     public static $prefixesPsr0 = array (
-        'u' => 
-        array (
-            'uqam' => 
-            array (
-                0 => __DIR__ . '/../..' . '/src',
-            ),
-        ),
         'T' => 
         array (
             'Twig_' => 
@@ -77,12 +93,17 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
         ),
     );
 
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/../..' . '/src',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$fallbackDirsPsr0;
 
         }, null, ClassLoader::class);
     }

@@ -34,26 +34,37 @@ $container['view'] = function ($c) {
 
 
 $app->get('/form/{name}', function ($request, $response, $args) {
-    $t1 = new stdClass();
-    $t1->name = 'test';
-    $t1->autre = 'salut';
-    $t2 = new stdClass();
-    $t2->name = 'test1';
-    $t2->autre = 'salut 1';
+    $b = new models\Builder();
+    $config = $b->getConfig();
+    $plugins = array();
+    foreach ($config['plugins'] as $plugin) {
+        $p = new models\Plugin(
+              $plugin['name'],
+              $plugin['dir'],
+              $plugin['url'],
+              $plugin['version']
+          );
+        $plugins[] = $p;
+    }
     return $this->view->render($response, 'forms/creation.html', [
-        'components' => [
-            $t1,
-            $t2
-        ]
+        'components' => $plugins
+
     ]);
 })->setName('form');
 
-$app->post('/creation', function ($request, $response, $args)  use ($app){
+$app->post('/creation', function ($request, $response, $args) {
     $data = $request->getParsedBody();
     return $this->view->render($response, 'profile.html', [
         'data' => $data
     ]);
 })->setName('creation');
+
+$app->get('/creation', function ($request, $response, $args) {
+    $b = new models\Builder();
+    return $this->view->render($response, 'debug.html', [
+      'data' => $b->getConfig()
+    ]);
+})->setName('debug');
 
 // Run app
 $app->run();

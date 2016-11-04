@@ -7,22 +7,38 @@ Créer ficheir json
 {% block content %}
 <form action="/creation" method="post">
     <div class="row">
-        <div class="small-3 columns">
-            <label for="middle-label" class="text-right middle">Label</label>
+        <div class="medium-12 columns">
+            <label>Moodle root path:</label>
+            <label>
+               <input type="text" id="middle-label" placeholder="Right- and middle-aligned text input" name="moodle_root">
+            </label>
         </div>
-        <div class="small-9 columns">
-            <input type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
+        <div class="medium-12 columns">
+            <div class="float-left medium-3 columns">
+                <a id="checkAll" href="#" class="success expanded button">Tous</a>
+            </div>
+            <div class="float-left medium-3 columns">
+                <a id="uncheckAll" href="#" class="alert expanded button">Aucun</a>
+            </div>
         </div>
-
         <fieldset class="fieldset">
             <legend>Choisir les composants à installer</legend>
 
             {% for comp in components %}
-            {{ include('forms/component.html') }} <br/>
+                {{ include('forms/component.html') }} <br/>
             {% endfor %}
 
         </fieldset>
     </div>
-    <input type="submit" value="Send">
+    <input type="submit" class="button expanded" value="Submit">
 </form>
+
+<script>
+    $('#checkAll').on('click', function() {
+        $("input[type=checkbox]").prop('checked', true);
+    });
+    $('#uncheckAll').on('click', function() {
+        $("input[type=checkbox]").prop('checked', false);
+    });
+</script>
 {% endblock %}
