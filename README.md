@@ -11,3 +11,13 @@ https://bitbucket.org/uqam/uqambuild
 ### Implémentation avec Slim et Twig.
 
 Un petit exemple de MVC.
+
+## Usage
+
+Aller à la racine du projet et lancer 
+
+php -S localhost:8000
+
+Par la suite aller à
+
+http://localhost:8000/form
