@@ -12,6 +12,10 @@ https://bitbucket.org/uqam/uqambuild
 
 Un petit exemple de MVC.
 
+https://github.com/slimphp/Twig-View
+http://foundation.zurb.com/sites/getting-started.html
+
+
 ## Usage
 
 Aller à la racine du projet et lancer 
