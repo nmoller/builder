@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block head %}
+        <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css" />
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+    <body>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div id="footer">
+            {% block footer %}
+            &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+            {% endblock %}
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.js"></script>
+    </body>
+</html>

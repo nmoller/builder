@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}
+{{name}}
+{% endblock %}
+
+{% block content %}
+<h1>Components</h1>
+<ul>
+
+    {{ dump(data) }}
+
+    <li><a href="/form/test">Form</a></li>
+</ul>
+{% endblock %}

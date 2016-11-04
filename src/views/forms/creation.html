@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Créer ficheir json
+{% endblock %}
+
+{% block content %}
+<form action="/creation" method="post">
+    <div class="row">
+        <div class="small-3 columns">
+            <label for="middle-label" class="text-right middle">Label</label>
+        </div>
+        <div class="small-9 columns">
+            <input type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
+        </div>
+
+        <fieldset class="fieldset">
+            <legend>Choisir les composants à installer</legend>
+
+            {% for comp in components %}
+            {{ include('forms/component.html') }} <br/>
+            {% endfor %}
+
+        </fieldset>
+    </div>
+    <input type="submit" value="Send">
+</form>
+{% endblock %}

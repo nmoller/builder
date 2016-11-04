@@ -1,0 +1,20 @@
+{
+  "name": "uqam/builder",
+  "description": "Créer des fichier de build perso.",
+  "license": "WTF",
+  "authors": [
+    {
+      "name": "Nelson Moller",
+      "email": "moller_clara.nelson@uqam.ca"
+    }
+  ],
+  "require": {
+    "slim/slim": "~3.0",
+    "slim/twig-view": "^2.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "uqam": "src/"
+    }
+  }
+}
