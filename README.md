@@ -8,3 +8,6 @@ ou
 
 https://bitbucket.org/uqam/uqambuild
 
+### Implémentation avec Slim et Twig.
+
+Un petit exemple de MVC.
