@@ -20,7 +20,8 @@ $container['view'] = function ($c) {
         'cache' => 'cache',
         'debug' => true,
     ]);
-
+    // Pour que la function dump soit utilisable dans la vue,
+    // il nous faut 'debug' => true et l'ajout de l'extension
     $view->addExtension(new Twig_Extension_Debug());
 
     // Instantiate and add Slim specific extension
@@ -35,7 +36,7 @@ $container['view'] = function ($c) {
 /**
  * C'est la route pour fournir le formulaire de création du fichier
  */
-$app->get('/form/{name}', function ($request, $response, $args) {
+$app->get('/form', function ($request, $response, $args) {
     $b = new models\Builder();
     $config = $b->getConfig();
     $plugins = array();
@@ -49,10 +50,13 @@ $app->get('/form/{name}', function ($request, $response, $args) {
         $plugins[] = $p;
     }
     return $this->view->render($response, 'forms/creation.html', [
+        'root' => $config['basedir'] .'/'. $config['main']['dir'],
         'components' => $plugins
 
     ]);
 })->setName('form');
+// avoir de routes nomées nous permet de les référer comme {{path_for('form')}}
+// dans la vue (voir debug).
 
 /**
  * C'est la route responsable du traitement lors de la réception des données du
