@@ -1,0 +1,9 @@
+{"basedir":"/home/nmoller/dev/uqambuild",
+"main":{"name":"moodle","dir":"moodle","url":"ssh://git@bitbucket.org/uqam/moodle.git","version":"MOODLE_30_STABLE","action":"install"},
+"plugins":[
+{"name":"blocks_adminuq","dir":"blocks/adminuq","url":"ssh://git@bitbucket.org/uqam/blocks_adminuq.git","version":"UQAM_30_DEV","action":"install"},
+{"name":"blocks_manitou","dir":"blocks/manitou","url":"ssh://git@bitbucket.org/uqam/blocks_manitou.git","version":"UQAM_30_DEV","action":"install"}],
+"required":[
+{"name":"moodledata","type":"directory","path":"/tmp/hdata/moodledata/moodle30"}
+]
+}

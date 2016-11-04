@@ -14,8 +14,9 @@ class Plugin {
     public $dir;
     public $url;
     public $version;
+    public $action;
 
-    function __construct($name, $dir, $url, $version) {
+    function __construct($name, $dir, $url, $version = 'UQAM_30_DEV') {
         $this->name = $name;
         $this->dir = $dir;
         $this->url = $url;
@@ -25,6 +26,18 @@ class Plugin {
 
     function cleanName(){
         $this->name = str_replace('.', '_', $this->name);
+    }
+
+    function setAction($action = 'install') {
+        $this->action = $action;
+    }
+
+    function toJson() {
+        return json_encode($this, JSON_UNESCAPED_SLASHES);
+    }
+
+    static function createFromArray(array $data) {
+        return new Plugin($data['name'], $data['dir'], $data['url']);
     }
 
 }

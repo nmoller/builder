@@ -51,6 +51,8 @@ $app->get('/form', function ($request, $response, $args) {
     }
     return $this->view->render($response, 'forms/creation.html', [
         'root' => $config['basedir'] .'/'. $config['main']['dir'],
+        'moodle_branch' => $config['main']['version'],
+        'moodle_repo' => $config['main']['url'],
         'components' => $plugins
 
     ]);
@@ -64,18 +66,44 @@ $app->get('/form', function ($request, $response, $args) {
  */
 $app->post('/creation', function ($request, $response, $args) {
     $data = $request->getParsedBody();
+    $b = new models\Builder();
+    $content = $b->buildFromData($data);
+    file_put_contents(__DIR__.'/assets/tmp/test.json', $content);
     return $this->view->render($response, 'debug.html', [
-        'data' => $data
+       //'data' => $data // utile pour déboguer les valeurs soumises.
+      'data' => $content
     ]);
 })->setName('creation');
 
 
 $app->get('/creation', function ($request, $response, $args) {
     $b = new models\Builder();
+    $comp = $b->getConfig();
+    $comp = $comp['plugins'][1];
+    $p = new models\Plugin($comp['name'], $comp['dir'], $comp['url'], $comp['version']);
     return $this->view->render($response, 'debug.html', [
-      'data' => $b->getConfig()
+      //'data' => $b->getConfig()
+      'data' => $p->toJson()
     ]);
 })->setName('debug');
+
+$app->get('/download', function($request, $response, $args) {
+    $file = __DIR__ . '/assets/tmp/test.json';
+    $fh = fopen($file, 'rb');
+
+    $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
+
+    return $response->withHeader('Content-Type', 'application/force-download')
+      ->withHeader('Content-Type', 'application/octet-stream')
+      ->withHeader('Content-Type', 'application/download')
+      ->withHeader('Content-Description', 'File Transfer')
+      ->withHeader('Content-Transfer-Encoding', 'binary')
+      ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
+      ->withHeader('Expires', '0')
+      ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+      ->withHeader('Pragma', 'public')
+      ->withBody($stream); // all stream contents will be sent to the response
+})->setName('download');
 
 // Run app
 $app->run();
