@@ -32,7 +32,9 @@ $container['view'] = function ($c) {
 
 // Define named route
 
-
+/**
+ * C'est la route pour fournir le formulaire de création du fichier
+ */
 $app->get('/form/{name}', function ($request, $response, $args) {
     $b = new models\Builder();
     $config = $b->getConfig();
@@ -52,12 +54,17 @@ $app->get('/form/{name}', function ($request, $response, $args) {
     ]);
 })->setName('form');
 
+/**
+ * C'est la route responsable du traitement lors de la réception des données du
+ * formulaire.
+ */
 $app->post('/creation', function ($request, $response, $args) {
     $data = $request->getParsedBody();
-    return $this->view->render($response, 'profile.html', [
+    return $this->view->render($response, 'debug.html', [
         'data' => $data
     ]);
 })->setName('creation');
+
 
 $app->get('/creation', function ($request, $response, $args) {
     $b = new models\Builder();
