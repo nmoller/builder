@@ -76,6 +76,10 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/src',
+    );
+
     public static $prefixesPsr0 = array (
         'T' => 
         array (
@@ -93,17 +97,13 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
         ),
     );
 
-    public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/../..' . '/src',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5::$fallbackDirsPsr0;
 
         }, null, ClassLoader::class);
     }
