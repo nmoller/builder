@@ -40,7 +40,6 @@
    {"name":"local_wsmanagetsf", "dir":"local/wsmanagetsf", "url":"ssh://git@bitbucket.org/uqam/local_wsmanagetsf.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_wsquizurltsf", "dir":"local/wsquizurltsf", "url":"ssh://git@bitbucket.org/uqam/local_wsquizurltsf.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_wsuserincourse", "dir":"local/wsuserincourse", "url":"ssh://git@bitbucket.org/uqam/local_wsuserincourse.git","version":"UQAM_30_DEV","action":"install"},
-   {"name":"login", "dir":"login", "url":"ssh://git@bitbucket.org/uqam/login.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"mod_choicegroup", "dir":"mod/choicegroup", "url":"ssh://git@bitbucket.org/uqam/mod_choicegroup.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"mod_quiz_accessrule_safeexambrowser", "dir":"mod/quiz/accessrule/safeexambrowser", "url":"ssh://git@bitbucket.org/uqam/mod_quiz_accessrule_safeexambrowser.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"mod_hotpot", "dir":"mod/hotpot", "url":"ssh://git@bitbucket.org/uqam/mod_hotpot.git","version":"UQAM_30_DEV","action":"install"},
