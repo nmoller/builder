@@ -1,8 +1,7 @@
 {"basedir":"/home/nmoller/dev/uqambuild",
  "main":{"name":"moodle","dir":"moodle","url":"ssh://git@bitbucket.org/uqam/moodle.git","version":"MOODLE_30_STABLE","action":"install"},
  "plugins":[
-   {"name":"config.php", "dir":".", "url":"ssh://git@bitbucket.org/uqam/configphp.git","version":"UQAM_30_DEV","action":"skip"},
-   {"name":"auth_shibboleth", "dir":"auth/shibboleth", "url":"ssh://git@bitbucket.org/uqam/auth_shibboleth.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"auth_saml2", "dir":"auth/saml2", "url":"git@bitbucket.org:uqam/auth_saml2.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_adminuq", "dir":"blocks/adminuq", "url":"ssh://git@bitbucket.org/uqam/blocks_adminuq.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_manitou", "dir":"blocks/manitou", "url":"ssh://git@bitbucket.org/uqam/blocks_manitou.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_panopto", "dir":"blocks/panopto", "url":"ssh://git@bitbucket.org/uqam/blocks_panopto.git","version":"UQAM_30_DEV","action":"install"},
@@ -49,6 +48,7 @@
    {"name":"filter_poodll", "dir":"filter/poodll", "url":"ssh://git@bitbucket.org/uqam/filter_poodll.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"question_type_poodllrecording", "dir":"question/type/poodllrecording", "url":"ssh://git@bitbucket.org/uqam/question_type_poodllrecording.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"lib_editor_atto_plugins_poodll", "dir":"lib/editor/atto/plugins/poodll", "url":"ssh://git@bitbucket.org/uqam/lib_editor_atto_plugins_poodll.git","version":"UQAM_30_DEV","action":"install"},
+
    {"name":"question_format_hotpot", "dir":"question/format/hotpot", "url":"ssh://git@bitbucket.org/uqam/question_format_hotpot.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"question_type_dicteeuqamcla", "dir":"question/type/dicteeuqamcla", "url":"ssh://git@bitbucket.org/uqam/question_type_dicteeuqamcla.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"question_type_multiansweruqamcla", "dir":"question/type/multiansweruqamcla", "url":"ssh://git@bitbucket.org/uqam/question_type_multiansweruqamcla.git","version":"UQAM_30_DEV","action":"install"},
