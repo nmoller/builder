@@ -46,8 +46,11 @@
    {"name":"mod_hotpot", "dir":"mod/hotpot", "url":"ssh://git@bitbucket.org/uqam/mod_hotpot.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"mod_questionnaire", "dir":"mod/questionnaire", "url":"ssh://git@bitbucket.org/uqam/mod_questionnaire.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"filter_poodll", "dir":"filter/poodll", "url":"ssh://git@bitbucket.org/uqam/filter_poodll.git","version":"UQAM_30_DEV","action":"install"},
-   {"name":"question_type_poodllrecording", "dir":"question/type/poodllrecording", "url":"ssh://git@bitbucket.org/uqam/question_type_poodllrecording.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"lib_editor_atto_plugins_poodll", "dir":"lib/editor/atto/plugins/poodll", "url":"ssh://git@bitbucket.org/uqam/lib_editor_atto_plugins_poodll.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"mod_assign_submission_onlinepoodll", "dir":"mod/assign/submission/onlinepoodll", "url":"ssh://git@bitbucket.org/uqam/mod_assign_submission_onlinepoodll.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"mod_assign_feedback_poodll", "dir":"mod/assign/feedback/poodll", "url":"ssh://git@bitbucket.org/uqam/mod_assign_feedback_poodll.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"question_type_poodllrecording", "dir":"question/type/poodllrecording", "url":"ssh://git@bitbucket.org/uqam/question_type_poodllrecording.git","version":"UQAM_30_DEV","action":"install"},
+
 
    {"name":"question_format_hotpot", "dir":"question/format/hotpot", "url":"ssh://git@bitbucket.org/uqam/question_format_hotpot.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"question_type_dicteeuqamcla", "dir":"question/type/dicteeuqamcla", "url":"ssh://git@bitbucket.org/uqam/question_type_dicteeuqamcla.git","version":"UQAM_30_DEV","action":"install"},
