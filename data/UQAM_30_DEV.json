@@ -35,6 +35,7 @@
    {"name":"local_uqregistration", "dir":"local/uqregistration", "url":"ssh://git@bitbucket.org/uqam/local_uqregistration.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_uqretraitcours", "dir":"local/uqretraitcours", "url":"ssh://git@bitbucket.org/uqam/local_uqretraitcours.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_uqtsf", "dir":"local/uqtsf", "url":"ssh://git@bitbucket.org/uqam/local_uqtsf.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"local_uqstats", "dir":"local/uqstats", "url":"ssh://git@bitbucket.org/uqam/local_uqstats.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_usersincourse", "dir":"local/usersincourse", "url":"ssh://git@bitbucket.org/uqam/local_usersincourse.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_wscandidatstsf", "dir":"local/wscandidatstsf", "url":"ssh://git@bitbucket.org/uqam/local_wscandidatstsf.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_wsgetcoursegrades", "dir":"local/wsgetcoursegrades", "url":"ssh://git@bitbucket.org/uqam/local_wsgetcoursegrades.git","version":"UQAM_30_DEV","action":"install"},
