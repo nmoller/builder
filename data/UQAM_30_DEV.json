@@ -2,6 +2,7 @@
  "main":{"name":"moodle","dir":"moodle","url":"ssh://git@bitbucket.org/uqam/moodle.git","version":"MOODLE_30_STABLE","action":"install"},
  "plugins":[
    {"name":"auth_saml2", "dir":"auth/saml2", "url":"git@bitbucket.org:uqam/auth_saml2.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"auth_shibboleth", "dir":"auth/shibboleth", "url":"ssh://git@bitbucket.org/uqam/auth_shibboleth.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_adminuq", "dir":"blocks/adminuq", "url":"ssh://git@bitbucket.org/uqam/blocks_adminuq.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_manitou", "dir":"blocks/manitou", "url":"ssh://git@bitbucket.org/uqam/blocks_manitou.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_panopto", "dir":"blocks/panopto", "url":"ssh://git@bitbucket.org/uqam/blocks_panopto.git","version":"UQAM_30_DEV","action":"install"},
