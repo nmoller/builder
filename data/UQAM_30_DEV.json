@@ -4,6 +4,7 @@
    {"name":"auth_saml2", "dir":"auth/saml2", "url":"git@bitbucket.org:uqam/auth_saml2.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"auth_shibboleth", "dir":"auth/shibboleth", "url":"ssh://git@bitbucket.org/uqam/auth_shibboleth.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_adminuq", "dir":"blocks/adminuq", "url":"ssh://git@bitbucket.org/uqam/blocks_adminuq.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"blocks_completion_progress", "dir":"blocks/completion_progress", "url":"git@bitbucket.org:uqam/blocks_completion_progress.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_manitou", "dir":"blocks/manitou", "url":"ssh://git@bitbucket.org/uqam/blocks_manitou.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_panopto", "dir":"blocks/panopto", "url":"ssh://git@bitbucket.org/uqam/blocks_panopto.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_side_bar", "dir":"blocks/side_bar", "url":"ssh://git@bitbucket.org/uqam/blocks_side_bar.git","version":"UQAM_30_DEV","action":"install"},
