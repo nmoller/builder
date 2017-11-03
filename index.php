@@ -75,6 +75,21 @@ $app->post('/creation', function ($request, $response, $args) {
     ]);
 })->setName('creation');
 
+/**
+ * C'est la route responsable du traitement lors de la réception des données du
+ * formulaire.
+ */
+$app->post('/jenkins', function ($request, $response, $args) {
+    $data = $request->getParsedBody();
+    $b = new models\Jenkins();
+    $content = $b->buildFromData($data);
+    file_put_contents(__DIR__.'/assets/tmp/moodleJenkins', $content);
+    return $this->view->render($response, 'debug.html', [
+        //'data' => $data // utile pour déboguer les valeurs soumises.
+      'data' => $content
+    ]);
+})->setName('jenkins');
+
 
 $app->get('/creation', function ($request, $response, $args) {
     $b = new models\Builder();
