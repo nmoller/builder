@@ -73,16 +73,16 @@ git clone --depth 1 --branch ${CLONE_BRANCH} --single-branch git@bitbucket.org:u
         }
 
         $ret .= '# Committer
-                cd \$WORKSPACE/moodle
-                git add local/uqamlib local/codestests local/codesexternes local/resetext local/uqinfosperso
-                git commit -m "${COMMITMSG}"
-                git remote add bb https://\$BB_USER:\$BB_PASS@bitbucket.org/uqam/moodle.git
-                
-                if [ "${CLONE_BRANCH}"  != "${BRANCH}" ]
-                then
-                    git checkout -b ${BRANCH}
-                fi
-                git push bb ${BRANCH}:${BRANCH}' . PHP_EOL;
+cd \$WORKSPACE/moodle
+git add --all
+git commit -m "${COMMITMSG}"
+git remote add bb https://\$BB_USER:\$BB_PASS@bitbucket.org/uqam/moodle.git
+
+if [ "${CLONE_BRANCH}"  != "${BRANCH}" ]
+then
+    git checkout -b ${BRANCH}
+fi
+git push bb ${BRANCH}:${BRANCH}' . PHP_EOL;
         $ret .= '\'\'\')' . PHP_EOL;
         $ret .= '';
         //Fin steps
