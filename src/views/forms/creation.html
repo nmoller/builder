@@ -41,6 +41,9 @@ Créer ficheir json
             <div class="float-left medium-3 columns">
                 <a id="uncheckAll" href="#" class="alert expanded button">Aucun</a>
             </div>
+            <div class="float-left medium-3 columns">
+                <a id="jenkins" href="#" class="success expanded button">Jenkins file</a>
+            </div>
         </div>
         <fieldset class="fieldset">
             <legend>Choisir les composants à installer</legend>
@@ -62,17 +65,47 @@ Créer ficheir json
         $("input[type=checkbox]").prop('checked', false);
     });
 
+    $('#jenkins').on('click', function(){
+        jenkins_input = $('#creation_form input[name=jenkins-file]');
+
+        theForm = $('#creation_form');
+        if (jenkins_input.length) {
+            current_val = jenkins_input.val();
+            new_val = (parseInt(current_val) + 1) % 2;
+            jenkins_input.val(new_val);
+            $('#jenkins').toggleClass('alert success')
+
+            if (new_val == 0) {
+                theForm.attr('action', '/creation');
+            }
+            else {
+                theForm.attr('action', '/jenkins');
+            }
+
+            return;
+        }
+
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'jenkins-file'; // 'the key/name of the attribute/field that is sent to the server
+        input.value = 1;
+        theForm.append(input);
+        theForm.attr('action', '/jenkins');
+
+        $('#jenkins').removeClass('success').addClass('alert')
+    });
+
     /**
      * On enlève tous les versions des composantes qui ne sont pas
      * séléctionnées.
      */
-    $('#creation_form').on('submit', function () {
+    $('#creation_form').on('submit', function (e) {
         $("input:checkbox:not(:checked)").each(function() {
             var component = $(this).attr('id');
             var test = $('#' + component+'_version');
             test.attr('disabled', true);
         });
 
-    })
+    });
 </script>
 {% endblock %}
