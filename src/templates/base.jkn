@@ -1,0 +1,20 @@
+job('Moodle-new-version') {
+    parameters {
+        stringParam('COMMITMSG', 'Commit de test', 'Message pour commit.')
+        stringParam('BRANCH', 'UQAM_DEV_TEMP', 'Nom de la branche a creer.')
+    }
+    wrappers {
+        credentialsBinding {
+            usernamePassword('BB_USER', 'BB_PASS', 'uqamena-BB')
+          }
+    }
+    multiscm {
+        {% block depot %}{% endblock %}
+    }
+
+    steps {
+      shell('''
+      {% block shell %}{% endblock %}
+      ''')
+      }
+}

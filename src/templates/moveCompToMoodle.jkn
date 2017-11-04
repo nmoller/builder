@@ -1,0 +1,6 @@
+
+# {{ component }}
+rm -rf \$WORKSPACE/component/{{ folder }}/.git
+rm -rf \$WORKSPACE/moodle/{{ folder }}
+cp -r \$WORKSPACE/component/{{ folder }} \$WORKSPACE/moodle/{{ folder }}
+rm -rf \$WORKSPACE/component/{{ folder }}

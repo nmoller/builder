@@ -1,0 +1,14 @@
+# Commencer clean
+if [ -d \$WORKSPACE/moodle ]
+then
+   rm -rf \$WORKSPACE/moodle
+fi
+# Verifier si la branche existe
+CLONE_BRANCH=${BRANCH}
+FIRST=`git ls-remote --heads https://\$BB_USER:\$BB_PASS@bitbucket.org/uqam/moodle.git ${BRANCH} | wc -l `
+# Si la branche n'existe pas encore prendre autre
+if [ "${FIRST}" -eq 0 ]
+then
+  CLONE_BRANCH='UQAM_30_INT'
+fi
+git clone --depth 1 --branch ${CLONE_BRANCH} --single-branch git@bitbucket.org:uqam/moodle.git \$WORKSPACE/moodle

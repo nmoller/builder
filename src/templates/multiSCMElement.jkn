@@ -1,0 +1,14 @@
+        git {
+          remote {
+            url('{{ url }}')
+            credentials('uqamena-BB')
+            branch('{{ branch }}')
+          }
+          extensions {
+            cloneOptions {
+              shallow()
+            }
+            cleanAfterCheckout()
+            relativeTargetDirectory('{{ folder }}')
+          }
+        }

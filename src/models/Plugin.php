@@ -34,32 +34,23 @@ class Plugin {
         return 'https://' . $temp;
     }
 
-    function multiSCMElement() {
-        $ret_val =  'git { ' . PHP_EOL;
-        $ret_val .= '  remote {' . PHP_EOL;
-        $ret_val .= '    url(' .  $this->getHttpsUrl() . ')'. PHP_EOL;
-        $ret_val .= '    credentials(\'uqamena-BB\')' . PHP_EOL;
-        $ret_val .= '    branch(\''. $this->version . '\')'. PHP_EOL;
-        $ret_val .= '  }'. PHP_EOL;
-        $ret_val .= '  extensions {'. PHP_EOL;
-        $ret_val .= '    cloneOptions {'. PHP_EOL;
-        $ret_val .= '      shallow()'. PHP_EOL;
-	    $ret_val .= '    }'. PHP_EOL;
-		$ret_val .= '    cleanAfterCheckout()'. PHP_EOL;
-		$ret_val .= '    relativeTargetDirectory(\'component/' . $this->dir . '\')'. PHP_EOL;
-	    $ret_val .= '  }' . PHP_EOL;
-        $ret_val .= '}' . PHP_EOL;
-
-        return $ret_val;
+    function multiSCMElement($twig) {
+        return $twig->render('multiSCMElement.jkn',
+            [
+                'url' => $this->getHttpsUrl(),
+                'branch' => $this->version,
+                'folder' => 'component/' . $this->dir
+            ]
+        );
     }
 
-    function moveCompToMoodle(){
-        $ret = PHP_EOL . '# ' . $this->name . PHP_EOL;
-        $ret .= 'rm -rf \$WORKSPACE/component/'. $this->dir .'/.git'.PHP_EOL;
-        $ret .= 'rm -rf \$WORKSPACE/moodle/' . $this->dir .PHP_EOL;
-        $ret .= 'cp -r \$WORKSPACE/'. 'component/'. $this->dir . ' \$WORKSPACE/moodle/'. $this->dir .PHP_EOL;
-        $ret .= 'rm -rf \$WORKSPACE/component/'. $this->dir .PHP_EOL;
-        return $ret;
+    function moveCompToMoodle($twig){
+        return $twig->render('moveCompToMoodle.jkn',
+            [
+                'component' => $this->name,
+                'folder' => $this->dir
+            ]
+        );
     }
 
     function setAction($action = 'install') {
