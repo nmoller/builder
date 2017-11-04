@@ -36,7 +36,7 @@ $container['view'] = function ($c) {
 /**
  * C'est la route pour fournir le formulaire de création du fichier
  */
-$app->get('/form', function ($request, $response, $args) {
+$app->get('/[form]', function ($request, $response, $args) {
     $b = new models\Builder();
     $config = $b->getConfig();
     $plugins = array();
