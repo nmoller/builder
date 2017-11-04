@@ -120,5 +120,23 @@ $app->get('/download', function($request, $response, $args) {
       ->withBody($stream); // all stream contents will be sent to the response
 })->setName('download');
 
+$app->get('/downloadJenk', function($request, $response, $args) {
+    $file = __DIR__ . '/assets/tmp/moodleJenkins';
+    $fh = fopen($file, 'rb');
+
+    $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
+
+    return $response->withHeader('Content-Type', 'application/force-download')
+        ->withHeader('Content-Type', 'application/octet-stream')
+        ->withHeader('Content-Type', 'application/download')
+        ->withHeader('Content-Description', 'File Transfer')
+        ->withHeader('Content-Transfer-Encoding', 'binary')
+        ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
+        ->withHeader('Expires', '0')
+        ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+        ->withHeader('Pragma', 'public')
+        ->withBody($stream); // all stream contents will be sent to the response
+})->setName('downloadJenk');
+
 // Run app
 $app->run();

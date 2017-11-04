@@ -46,7 +46,7 @@ class Plugin {
         $ret_val .= '      shallow()'. PHP_EOL;
 	    $ret_val .= '    }'. PHP_EOL;
 		$ret_val .= '    cleanAfterCheckout()'. PHP_EOL;
-		$ret_val .= '    relativeTargetDirectory(\' component/' . $this->dir . '\')'. PHP_EOL;
+		$ret_val .= '    relativeTargetDirectory(\'component/' . $this->dir . '\')'. PHP_EOL;
 	    $ret_val .= '  }' . PHP_EOL;
         $ret_val .= '}' . PHP_EOL;
 
@@ -54,7 +54,7 @@ class Plugin {
     }
 
     function moveCompToMoodle(){
-        $ret = '# ' . $this->name . PHP_EOL;
+        $ret = PHP_EOL . '# ' . $this->name . PHP_EOL;
         $ret .= 'rm -rf \$WORKSPACE/component/'. $this->dir .'/.git'.PHP_EOL;
         $ret .= 'rm -rf \$WORKSPACE/moodle/' . $this->dir .PHP_EOL;
         $ret .= 'cp -r \$WORKSPACE/'. 'component/'. $this->dir . ' \$WORKSPACE/moodle/'. $this->dir .PHP_EOL;
