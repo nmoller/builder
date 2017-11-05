@@ -53,7 +53,7 @@ $app->get('/[form]', function ($request, $response, $args) {
 // dans la vue (voir debug).
 
 $app->get('/test', function($request, $response, $args){
-    return $this->twig->render('jenkins.jkn');
+    return $this->twig->render('@jenkins/jenkins.jkn');
 });
 /**
  * C'est la route responsable du traitement lors de la réception des données du

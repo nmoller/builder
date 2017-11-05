@@ -1,4 +1,4 @@
-{% extends "base.jkn" %}
+{% extends "@jenkins/base.jkn" %}
 
 {% block depot %}
 Nimporte quoi
