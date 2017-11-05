@@ -11,12 +11,20 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
     );
 
     public static $prefixLengthsPsr4 = array (
+        'm' => 
+        array (
+            'mhndev\\slimFileResponse\\' => 24,
+        ),
         'Z' => 
         array (
             'Zend\\Stdlib\\' => 12,
             'Zend\\ServiceManager\\' => 20,
             'Zend\\Json\\' => 10,
             'Zend\\Config\\' => 12,
+        ),
+        'T' => 
+        array (
+            'Twig\\' => 5,
         ),
         'S' => 
         array (
@@ -26,6 +34,7 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Container\\' => 14,
         ),
         'I' => 
         array (
@@ -38,6 +47,10 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
     );
 
     public static $prefixDirsPsr4 = array (
+        'mhndev\\slimFileResponse\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mhndev/slim-file-response/src',
+        ),
         'Zend\\Stdlib\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
@@ -54,6 +67,10 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-config/src',
         ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/twig-view/src',
@@ -65,6 +82,10 @@ class ComposerStaticInit9a031db4f2e72afcffd1fc275c63eac5
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Interop\\Container\\' => 
         array (
