@@ -35,6 +35,7 @@ $container['view'] = function ($c) {
 //Register extra Twig stuff
 $container['twig'] = function() {
     $loader = new Twig_Loader_Filesystem('src/templates');
+    $loader->addPath('src/templates/jenkins', 'jenkins');
     $twig = new Twig_Environment($loader);
     return $twig;
 };

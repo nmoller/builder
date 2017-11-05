@@ -35,7 +35,7 @@ class Plugin {
     }
 
     function multiSCMElement($twig) {
-        return $twig->render('multiSCMElement.jkn',
+        return $twig->render('@jenkins/multiSCMElement.jkn',
             [
                 'url' => $this->getHttpsUrl(),
                 'branch' => $this->version,
@@ -45,7 +45,7 @@ class Plugin {
     }
 
     function moveCompToMoodle($twig){
-        return $twig->render('moveCompToMoodle.jkn',
+        return $twig->render('@jenkins/moveCompToMoodle.jkn',
             [
                 'component' => $this->name,
                 'folder' => $this->dir
