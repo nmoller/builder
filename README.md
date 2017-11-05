@@ -31,3 +31,9 @@ http://localhost:8000
 Si vous utilisez php5.5, vous allez recevoir un message d'erreur dans le constructeur de Builder.php
 
 Pour s'en sortir, changez le chemin absolut de HOME à '.'.
+
+## Inpiration jenkins
+
+Regarder les fichiers dans
+
+https://github.com/nmoller/jenkins-dsl
