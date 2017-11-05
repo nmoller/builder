@@ -31,6 +31,7 @@ $container['view'] = function ($c) {
     return $view;
 };
 
+
 //Register extra Twig stuff
 $container['twig'] = function() {
     $loader = new Twig_Loader_Filesystem('src/templates');
@@ -44,25 +45,8 @@ $container['twig'] = function() {
  * C'est la route pour fournir le formulaire de création du fichier
  */
 $app->get('/[form]', function ($request, $response, $args) {
-    $b = new models\Builder();
-    $config = $b->getConfig();
-    $plugins = array();
-    foreach ($config['plugins'] as $plugin) {
-        $p = new models\Plugin(
-              $plugin['name'],
-              $plugin['dir'],
-              $plugin['url'],
-              $plugin['version']
-          );
-        $plugins[] = $p;
-    }
-    return $this->view->render($response, 'forms/creation.html', [
-        'root' => $config['basedir'] .'/'. $config['main']['dir'],
-        'moodle_branch' => $config['main']['version'],
-        'moodle_repo' => $config['main']['url'],
-        'components' => $plugins
-
-    ]);
+    $controller = new controllers\Basic($request, $response, $args, ['view' => $this->view]);
+    $controller->form();
 })->setName('form');
 // avoir de routes nomées nous permet de les référer comme {{path_for('form')}}
 // dans la vue (voir debug).
@@ -75,14 +59,8 @@ $app->get('/test', function($request, $response, $args){
  * formulaire.
  */
 $app->post('/creation', function ($request, $response, $args) {
-    $data = $request->getParsedBody();
-    $b = new models\Builder();
-    $content = $b->buildFromData($data);
-    file_put_contents(__DIR__.'/assets/tmp/test.json', $content);
-    return $this->view->render($response, 'debug.html', [
-       //'data' => $data // utile pour déboguer les valeurs soumises.
-      'data' => $content
-    ]);
+    $controller = new controllers\Basic($request, $response, $args, ['view' => $this->view]);
+    $controller->postCreation();
 })->setName('creation');
 
 /**
@@ -114,20 +92,25 @@ $app->get('/creation', function ($request, $response, $args) {
 
 $app->get('/download', function($request, $response, $args) {
     $file = __DIR__ . '/assets/tmp/test.json';
-    $fh = fopen($file, 'rb');
+    /*
+   $controller = new controllers\Basic($request, $response, $args, ['view' => $this->view]);
+   $controller->download($file);
+  */
+   $fh = fopen($file, 'rb');
 
-    $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
+   $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
 
-    return $response->withHeader('Content-Type', 'application/force-download')
-      ->withHeader('Content-Type', 'application/octet-stream')
-      ->withHeader('Content-Type', 'application/download')
-      ->withHeader('Content-Description', 'File Transfer')
-      ->withHeader('Content-Transfer-Encoding', 'binary')
-      ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
-      ->withHeader('Expires', '0')
-      ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
-      ->withHeader('Pragma', 'public')
-      ->withBody($stream); // all stream contents will be sent to the response
+   return $response->withHeader('Content-Type', 'application/force-download')
+     ->withHeader('Content-Type', 'application/octet-stream')
+     ->withHeader('Content-Type', 'application/download')
+     ->withHeader('Content-Description', 'File Transfer')
+     ->withHeader('Content-Transfer-Encoding', 'binary')
+     ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
+     ->withHeader('Expires', '0')
+     ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+     ->withHeader('Pragma', 'public')
+     ->withBody($stream); // all stream contents will be sent to the response
+
     })->setName('download');
 
 $app->get('/downloadJenk', function($request, $response, $args) {
