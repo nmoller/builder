@@ -1,4 +1,6 @@
-# Création du ficher json pour produire une installation
+# Création des fichers pour produire une installation
+
+On peut produire les manifest json ou les fichiers pour batir une distro dans jenkins.
 
 ### À utiliser avec:
 
@@ -7,6 +9,8 @@ https://bitbucket.org/nm71/mdlinstaller
 ou 
 
 https://bitbucket.org/uqam/uqambuild
+
+ou votre jenkins (avoir: jenkins DSL, multiSCM)
 
 ### Implémentation avec Slim et Twig.
 
