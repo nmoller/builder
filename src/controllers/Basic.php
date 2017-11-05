@@ -9,7 +9,7 @@
 namespace controllers;
 use models\Builder as Builder;
 use models\Plugin as Plugin;
-use \Slim\Http\Stream as Stream;
+use Slim\Http\Stream as Stream;
 
 
 class Basic
@@ -56,23 +56,8 @@ class Basic
     }
 
     function download($file) {
-        $this->downloadHeaders($file);
+        return \mhndev\slimFileResponse\FileResponse::getResponse($this->response, $file);
     }
 
-    private function downloadHeaders($file) {
-        $fh = fopen($file, 'rb');
-        $stream = new Stream($fh); // create a stream instance for the response body;
-        $response = $this->response;
-        return $response->withHeader('Content-Type', 'application/force-download')
-            ->withHeader('Content-Type', 'application/octet-stream')
-            ->withHeader('Content-Type', 'application/download')
-            ->withHeader('Content-Description', 'File Transfer')
-            ->withHeader('Content-Transfer-Encoding', 'binary')
-            ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
-            ->withHeader('Expires', '0')
-            ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
-            ->withHeader('Pragma', 'public')
-            ->withBody($stream); // all stream contents will be sent to the response
-    }
 
 }

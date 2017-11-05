@@ -92,44 +92,17 @@ $app->get('/creation', function ($request, $response, $args) {
 
 $app->get('/download', function($request, $response, $args) {
     $file = __DIR__ . '/assets/tmp/test.json';
-    /*
-   $controller = new controllers\Basic($request, $response, $args, ['view' => $this->view]);
-   $controller->download($file);
-  */
-   $fh = fopen($file, 'rb');
+    $controller = new controllers\Basic($request, $response, $args);
+    return $controller->download($file);
 
-   $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
-
-   return $response->withHeader('Content-Type', 'application/force-download')
-     ->withHeader('Content-Type', 'application/octet-stream')
-     ->withHeader('Content-Type', 'application/download')
-     ->withHeader('Content-Description', 'File Transfer')
-     ->withHeader('Content-Transfer-Encoding', 'binary')
-     ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
-     ->withHeader('Expires', '0')
-     ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
-     ->withHeader('Pragma', 'public')
-     ->withBody($stream); // all stream contents will be sent to the response
-
-    })->setName('download');
+})->setName('download');
 
 $app->get('/downloadJenk', function($request, $response, $args) {
     $file = __DIR__ . '/assets/tmp/moodleJenkins';
-    $fh = fopen($file, 'rb');
+    $controller = new controllers\Basic($request, $response, $args);
+    return $controller->download($file);
 
-    $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
-
-    return $response->withHeader('Content-Type', 'application/force-download')
-        ->withHeader('Content-Type', 'application/octet-stream')
-        ->withHeader('Content-Type', 'application/download')
-        ->withHeader('Content-Description', 'File Transfer')
-        ->withHeader('Content-Transfer-Encoding', 'binary')
-        ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
-        ->withHeader('Expires', '0')
-        ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
-        ->withHeader('Pragma', 'public')
-        ->withBody($stream); // all stream contents will be sent to the response
-    })->setName('downloadJenk');
+})->setName('downloadJenk');
 
 // Run app
 $app->run();
