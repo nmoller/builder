@@ -11,4 +11,4 @@ if [ "${FIRST}" -eq 0 ]
 then
   CLONE_BRANCH='UQAM_30_INT'
 fi
-git clone --depth 1 --branch ${CLONE_BRANCH} --single-branch git@bitbucket.org:uqam/moodle.git \$WORKSPACE/moodle
+git clone --depth 1 --branch ${CLONE_BRANCH} --single-branch https://\$BB_USER:\$BB_PASS@bitbucket.org/uqam/moodle.git \$WORKSPACE/moodle
