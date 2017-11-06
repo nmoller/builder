@@ -40,7 +40,7 @@ class Jenkins {
                 $comp = $this->treatModule($nom, $values, $data[$nom . '|version'], true);
             $ret .= $comp->moveCompToMoodle($twig);
         }
-
+        $ret .= $twig->render('@jenkins/footer.jkn');
         return trim($ret);
     }
 
