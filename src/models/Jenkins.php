@@ -44,10 +44,10 @@ class Jenkins {
             $ret .= "$comp->dir ";
             $count ++;
             if ($count % 5 == 0) {
-                $ret .= ' \\ ' . PHP_EOL;
+                $ret .= PHP_EOL . 'git add --all ';
             }
         }
-        $ret .= $twig->render('@jenkins/footer.jkn');
+        $ret .= PHP_EOL . $twig->render('@jenkins/footer.jkn');
         return trim($ret);
     }
 }
