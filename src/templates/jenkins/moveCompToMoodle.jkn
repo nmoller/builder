@@ -2,6 +2,7 @@
 # {{ component }}
 rm -rf \$WORKSPACE/component/{{ folder }}/.git
 if [ -d \$WORKSPACE/moodle/{{ folder }} ]
+then
     rm -rf \$WORKSPACE/moodle/{{ folder }}
 fi
 cp -r \$WORKSPACE/component/{{ folder }} \$WORKSPACE/moodle/{{ folder }}
