@@ -31,48 +31,37 @@ $container['view'] = function ($c) {
     return $view;
 };
 
+
+//Register extra Twig stuff
+$container['twig'] = function() {
+    $loader = new Twig_Loader_Filesystem('src/templates');
+    $loader->addPath('src/templates/jenkins', 'jenkins');
+    $twig = new Twig_Environment($loader);
+    return $twig;
+};
+
 // Define named route
 
 /**
  * C'est la route pour fournir le formulaire de création du fichier
  */
-$app->get('/form', function ($request, $response, $args) {
-    $b = new models\Builder();
-    $config = $b->getConfig();
-    $plugins = array();
-    foreach ($config['plugins'] as $plugin) {
-        $p = new models\Plugin(
-              $plugin['name'],
-              $plugin['dir'],
-              $plugin['url'],
-              $plugin['version']
-          );
-        $plugins[] = $p;
-    }
-    return $this->view->render($response, 'forms/creation.html', [
-        'root' => $config['basedir'] .'/'. $config['main']['dir'],
-        'moodle_branch' => $config['main']['version'],
-        'moodle_repo' => $config['main']['url'],
-        'components' => $plugins
-
-    ]);
+$app->get('/[form]', function ($request, $response, $args) {
+    $controller = new controllers\Basic($request, $response, $args, ['view' => $this->view]);
+    $controller->form();
 })->setName('form');
 // avoir de routes nomées nous permet de les référer comme {{path_for('form')}}
 // dans la vue (voir debug).
 
+$app->get('/test', function($request, $response, $args){
+    return $this->twig->render('@jenkins/jenkins.jkn');
+});
 /**
  * C'est la route responsable du traitement lors de la réception des données du
  * formulaire.
  */
 $app->post('/creation', function ($request, $response, $args) {
-    $data = $request->getParsedBody();
-    $b = new models\Builder();
-    $content = $b->buildFromData($data);
-    file_put_contents(__DIR__.'/assets/tmp/test.json', $content);
-    return $this->view->render($response, 'debug.html', [
-       //'data' => $data // utile pour déboguer les valeurs soumises.
-      'data' => $content
-    ]);
+    $controller = new controllers\Basic($request, $response, $args, ['view' => $this->view]);
+    $controller->postCreation();
 })->setName('creation');
 
 /**
@@ -82,7 +71,7 @@ $app->post('/creation', function ($request, $response, $args) {
 $app->post('/jenkins', function ($request, $response, $args) {
     $data = $request->getParsedBody();
     $b = new models\Jenkins();
-    $content = $b->buildFromData($data);
+    $content = $b->buildFromData($data, $this->twig);
     file_put_contents(__DIR__.'/assets/tmp/moodleJenkins', $content);
     return $this->view->render($response, 'debug.html', [
         //'data' => $data // utile pour déboguer les valeurs soumises.
@@ -104,21 +93,17 @@ $app->get('/creation', function ($request, $response, $args) {
 
 $app->get('/download', function($request, $response, $args) {
     $file = __DIR__ . '/assets/tmp/test.json';
-    $fh = fopen($file, 'rb');
+    $controller = new controllers\Basic($request, $response, $args);
+    return $controller->download($file);
 
-    $stream = new \Slim\Http\Stream($fh); // create a stream instance for the response body;
-
-    return $response->withHeader('Content-Type', 'application/force-download')
-      ->withHeader('Content-Type', 'application/octet-stream')
-      ->withHeader('Content-Type', 'application/download')
-      ->withHeader('Content-Description', 'File Transfer')
-      ->withHeader('Content-Transfer-Encoding', 'binary')
-      ->withHeader('Content-Disposition', 'attachment; filename="' . basename($file) . '"')
-      ->withHeader('Expires', '0')
-      ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
-      ->withHeader('Pragma', 'public')
-      ->withBody($stream); // all stream contents will be sent to the response
 })->setName('download');
+
+$app->get('/downloadJenk', function($request, $response, $args) {
+    $file = __DIR__ . '/assets/tmp/moodleJenkins';
+    $controller = new controllers\Basic($request, $response, $args);
+    return $controller->download($file);
+
+})->setName('downloadJenk');
 
 // Run app
 $app->run();

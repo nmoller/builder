@@ -1,0 +1,9 @@
+{% extends "@jenkins/base.jkn" %}
+
+{% block depot %}
+Nimporte quoi
+{% endblock %}
+
+{% block shell %}
+Encore des choses pas dallure
+{% endblock %}
