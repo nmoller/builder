@@ -14,7 +14,13 @@ class Builder {
 
     protected $config;
     protected $HOME;
-    function __construct($file = '/data/UQAM_30_DEV.json', $HOME = __DIR__.'/../..') {
+
+    /**
+     * Builder constructor.
+     * @param string $file dans le dossier /data choisir le bon json
+     * @param string $HOME
+     */
+    function __construct($file = '/data/UQAM_31_DEV.json', $HOME = __DIR__.'/../..') {
         $this->config = \Zend\Config\Factory::fromFile($HOME.$file);
     }
 
