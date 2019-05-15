@@ -14,6 +14,7 @@
    {"name":"blocks_uqinfosperso", "dir":"blocks/uqinfosperso", "url":"ssh://git@bitbucket.org/uqam/blocks_uqinfosperso.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"blocks_uqretraitcours", "dir":"blocks/uqretraitcours", "url":"ssh://git@bitbucket.org/uqam/blocks_uqretraitcours.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"course_format_topcoll", "dir":"course/format/topcoll", "url":"ssh://git@bitbucket.org/uqam/course_format_topcoll.git","version":"UQAM_30_DEV","action":"install"},
+   {"name":"course_format_uqamesg", "dir":"course/format/uqamesg", "url":"ssh://git@bitbucket.org:uqam/moodle-format_uqamesg.git","version":"master","action":"install"},
    {"name":"enrol_uqimsenterprise", "dir":"enrol/uqimsenterprise", "url":"ssh://git@bitbucket.org/uqam/enrol_uqimsenterprise.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_chsigle", "dir":"local/chsigle", "url":"ssh://git@bitbucket.org/uqam/local_chsigle.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"local_codesexternes", "dir":"local/codesexternes", "url":"ssh://git@bitbucket.org/uqam/local_codesexternes.git","version":"UQAM_30_DEV","action":"install"},
