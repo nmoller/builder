@@ -1,4 +1,4 @@
-{"basedir":"/home/nmoller/dev/uqambuild",
+{"basedir":"/opt/build",
  "main":{"name":"moodle","dir":"moodle","url":"ssh://git@bitbucket.org/uqam/moodle.git","version":"MOODLE_30_STABLE","action":"install"},
  "plugins":[
    {"name":"auth_saml2", "dir":"auth/saml2", "url":"git@bitbucket.org/uqam/auth_saml2.git","version":"UQAM_30_DEV","action":"install"},
