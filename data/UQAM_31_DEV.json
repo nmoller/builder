@@ -63,6 +63,7 @@
    {"name":"question_type_dicteeuqamcla", "dir":"question/type/dicteeuqamcla", "url":"ssh://git@bitbucket.org/uqam/question_type_dicteeuqamcla.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"question_type_multiansweruqamcla", "dir":"question/type/multiansweruqamcla", "url":"ssh://git@bitbucket.org/uqam/question_type_multiansweruqamcla.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"report_lpmonitoring", "dir":"report/lpmonitoring", "url":"ssh://git@bitbucket.org/uqam/report_lpmonitoring.git","version":"MOODLE_31_STABLE","action":"install"},
+   {"name":"theme_lambda","dir":"theme/lambda","url":"ssh://git@bitbucket.org/uqam/theme_lambda.git","version":"MOODLE_37_DEV","action":"install"},
    {"name":"theme_uqam", "dir":"theme/uqam", "url":"ssh://git@bitbucket.org/uqam/theme_lambda.git","version":"UQAM_30_DEV","action":"install"},
    {"name":"theme_uqamseb", "dir":"theme/uqamseb", "url":"ssh://git@bitbucket.org/uqam/theme_lambda.git","version":"UQAMSEB_30_DEV","action":"install"},
    {"name":"theme_uqamesg", "dir":"theme/uqamesg", "url":"ssh://git@bitbucket.org/uqam/theme_lambda.git","version":"UQAMESG_30_DEV","action":"install"},
